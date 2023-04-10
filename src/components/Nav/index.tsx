@@ -3,7 +3,7 @@
 import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
 
-import RESPONSIVE from 'styles/responsive'
+import RESPONSIVE from 'styles/Responsive'
 import { mq, s_mq } from 'styles/facepaint'
 
 import TitleCell from './cells/Title'
