@@ -6,6 +6,10 @@ export default function activateCurrentCategories(
   categoryDirectory?: string,
 ) {
   const currentEndpoint = getCurrentEndpointDecoded()
+  if (window === undefined) {
+    return
+  }
+
   const page = findCurrentPageByEndpoint(currentEndpoint)
   let currentSlug = getCurrentSlug(currentEndpoint, page)
 
