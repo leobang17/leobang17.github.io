@@ -6,7 +6,7 @@ export default function activateCurrentCategories(
   categoryDirectory?: string,
 ) {
   const currentEndpoint = getCurrentEndpointDecoded()
-  if (window === undefined) {
+  if (typeof window === undefined) {
     return
   }
 
