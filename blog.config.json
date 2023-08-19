@@ -2,13 +2,13 @@
   "metadata": {
     "title": "Blog Simplex",
     "description": "Blog created using the \"gatsby-theme-simplex\" theme. Find it on Github.",
-    "siteUrl": "https://github.com/leobang17/gatsby-theme-simplex"
+    "siteUrl": "https://leobang.me"
   },
   "social": {
-    "github": "https://github.com/leobang17/gatsby-theme-simplex"
+    "github": "https://github.com/leobang17"
   },
   "bio": {
-    "name": "Default Name"
+    "name": "Leo Bang"
   },
   "tableOfContents": {
     "maxDepth": 4
@@ -17,6 +17,6 @@
     "maxDepth": 2
   },
   "utterance": {
-    "issue_repo": ""
+    "issue_repo": "leobang17/utteranc-comment"
   }
 }

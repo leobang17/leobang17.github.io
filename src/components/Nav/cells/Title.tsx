@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/react'
 import { Link } from 'gatsby'
 import { FC } from 'react'
-import { Box } from '@mui/material'
+import { Avatar, Box } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 
 type TitleCellProps = {
@@ -31,7 +31,15 @@ const TitleCell: FC<TitleCellProps> = ({ title }) => {
   const { classes } = useStyles()
   return (
     <Link to="/">
-      <Box className={classes.root}>{title}</Box>
+      {/* <Box className={classes.root}>{title}</Box> */}
+      <Avatar
+        src="/title.png"
+        className={classes.root}
+        sx={{
+          width: '50px',
+          height: '50px',
+        }}
+      />
     </Link>
   )
 }
