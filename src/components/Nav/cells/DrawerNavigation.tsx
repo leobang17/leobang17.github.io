@@ -2,12 +2,13 @@
 
 import { FC, useState } from 'react'
 import { jsx, css } from '@emotion/react'
-import { l_mq } from 'styles/facepaint'
 import { Box, IconButton, SwipeableDrawer, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/MenuRounded'
 import CloseIcon from '@mui/icons-material/CloseRounded'
+
 import CategoryTable from 'components/CategoryTable'
-import { themeConfigs } from '../../../configuration'
+import GithubCell from './Github'
+import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 
 type DrawerNavigationProps = {}
 
@@ -17,16 +18,15 @@ const style = css(
     right: 1rem;
     align-items: center;
   `,
-  l_mq({
-    display: ['flex', 'none'],
-  }),
 )
 
 const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
+  const api = MetadataApiConfigurator.instance.api
+  const github = api.getSocialSingle('github')
   const [drawerState, setDrawerState] = useState<boolean>(false)
 
   return (
-    <nav css={style}>
+    <Box component="nav" css={style} display={{ md: 'block', lg: 'none' }}>
       <IconButton
         size="small"
         edge="start"
@@ -56,11 +56,7 @@ const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
               fontSize="small"
             />
           </IconButton>
-          <Typography
-            fontWeight="bold"
-            margin="0 0 10px 10px"
-            color={themeConfigs.light.sub}
-          >
+          <Typography fontWeight="bold" margin="0 0 10px 10px" color="primary">
             카테고리
           </Typography>
           <div
@@ -71,8 +67,11 @@ const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
             <CategoryTable />
           </div>
         </Box>
+        <Box alignSelf="flex-end" marginX="0.5rem" marginY="1.5rem">
+          <GithubCell siteUrl={github.value} drawer />
+        </Box>
       </SwipeableDrawer>
-    </nav>
+    </Box>
   )
 }
 

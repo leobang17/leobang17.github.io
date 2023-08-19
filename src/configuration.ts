@@ -4,14 +4,12 @@ import {
   BlogMetadata,
   Social,
   TableOfContentConfigs,
-  ThemeColors,
   UserInput,
 } from './@types/user-input.types'
-import { FIRST, SECOND } from './styles/Color'
 
 import userInput from '../blog.config.json'
 
-const { metadata, bio, social, tableOfContents, category, theme } =
+const { metadata, bio, social, tableOfContents, category, utterance } =
   userInput as UserInput
 
 export const siteMetadata = {
@@ -27,6 +25,7 @@ export const siteMetadata = {
   bio: fillDefaultConfiguration<Bio>(bio, {
     name: 'Default Name',
   }),
+  utterance,
 }
 
 export const tableOfContentConfigs =
@@ -37,10 +36,3 @@ export const tableOfContentConfigs =
 export const categoryConfigs = fillDefaultConfiguration(category, {
   maxDepth: 2,
 })
-
-export const themeConfigs = {
-  light: fillDefaultConfiguration<ThemeColors>(theme.light, {
-    main: FIRST,
-    sub: SECOND,
-  }),
-}

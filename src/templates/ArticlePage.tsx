@@ -5,9 +5,12 @@ import ArticleLayout from 'components/Layout/ArticleLayout'
 import MarkdownWrapper from 'components/MarkdownWrapper'
 import ArticleFrontmatter from 'components/ArticleFrontmatter'
 import ArticlePageContext from 'contexts/ArticlePageContext'
+import Utterances from 'components/Utterance'
+import RecentPosts from 'components/RecentPosts/RecentPosts'
 
 // @ts-ignore
 const ArticlePage = ({ data, children }) => {
+  const { prevPost, nextPost } = data
   const frontmatters = {
     ...data.mdx.frontmatter,
     timeToRead: data.mdx.fields.timeToRead,
@@ -18,6 +21,8 @@ const ArticlePage = ({ data, children }) => {
       <ArticleLayout>
         <ArticleFrontmatter {...frontmatters} />
         <MarkdownWrapper>{children}</MarkdownWrapper>
+        <RecentPosts prev={prevPost} next={nextPost} />
+        <Utterances />
       </ArticleLayout>
     </ArticlePageContext>
   )
@@ -26,7 +31,7 @@ const ArticlePage = ({ data, children }) => {
 export default ArticlePage
 
 export const query = graphql`
-  query ($id: String) {
+  query ($id: String, $nextId: String, $prevId: String) {
     mdx(id: { eq: $id }) {
       id
       fields {
@@ -39,6 +44,22 @@ export const query = graphql`
         createdAt(formatString: "MMMM DD, YYYY")
       }
       tableOfContents
+    }
+    prevPost: mdx(id: { eq: $prevId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+    nextPost: mdx(id: { eq: $nextId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
     }
   }
 `

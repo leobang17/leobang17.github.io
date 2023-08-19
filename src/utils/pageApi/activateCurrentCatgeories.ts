@@ -6,7 +6,6 @@ export default function activateCurrentCategories(
   categoryDirectory?: string,
 ) {
   const currentEndpoint = getCurrentEndpointDecoded()
-
   const page = findCurrentPageByEndpoint(currentEndpoint)
   let currentSlug = getCurrentSlug(currentEndpoint, page)
 
@@ -23,12 +22,7 @@ export default function activateCurrentCategories(
 }
 
 function getCurrentEndpointDecoded() {
-  let pathname = '/'
-  if (typeof window !== 'undefined') {
-    pathname = window.location.pathname
-  }
-
-  return decodeURIComponent(pathname)
+  return decodeURIComponent(window.location.pathname)
 }
 
 function getCurrentSlug(currentEndpoint: string, page: Pages) {
@@ -50,5 +44,3 @@ function throwIfPageNotFound(page?: Pages) {
     throw new Error('CategoryContext가 올바르지 않은 페이지에서 생성됨')
   }
 }
-
-const isBrowser = () => typeof window !== 'undefined'
