@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { PaletteMode, useMediaQuery } from '@mui/material'
 
 const THEME_TOKEN = 'gatsbt-theme-simplex-theme'
@@ -10,7 +10,7 @@ export function useDarkmode() {
 
   const [mode, setMode] = React.useState<PaletteMode>(systemTheme)
 
-  useEffect(() => {
+  React.useEffect(() => {
     const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
     if (cachedTheme) {
       setMode(cachedTheme)
