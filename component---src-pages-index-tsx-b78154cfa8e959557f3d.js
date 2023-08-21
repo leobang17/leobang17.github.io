@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgatsby_theme=self.webpackChunkgatsby_theme||[]).push([[691],{7200:function(t,e,s){s.r(e);var a=s(5635),l=s(4854),u=s(917);e.default=()=>(0,u.tZ)(a.Z,null,(0,u.tZ)(l.rU,{to:"/categories"},"All Posts"))}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-b78154cfa8e959557f3d.js.map
