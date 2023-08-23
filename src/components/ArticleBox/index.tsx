@@ -43,7 +43,7 @@ const ArticleBox: FC<MdxNode> = ({
       <Typography
         component="summary"
         variant="body1"
-        color={themeMainContrast('plainText')}
+        // color={themeMainContrast('plainText')}
         className={classes.summary}
       >
         {excerpt}

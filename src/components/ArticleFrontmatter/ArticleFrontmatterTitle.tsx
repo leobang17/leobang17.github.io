@@ -29,7 +29,7 @@ const ArticleFrontmatterTitle: FC<ArticleFrontmatterTitleProps> = ({
     <hgroup>
       <Typography
         variant="h1"
-        color={themeMainContrast('plainText')}
+        // color={themeMainContrast('plainText')}
         css={style}
       >
         {title}

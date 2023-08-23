@@ -34,7 +34,7 @@ const ArticleBoxTitle: FC<ArticleBoxTitleProps> = ({ slug, title }) => {
   return (
     <Link to={PAGE_PREFIX.ARTICLE + slug}>
       <Typography
-        color={themeMainContrast('plainText')}
+        // color={themeMainContrast('plainText')}
         className={classes.root}
       >
         {title}
