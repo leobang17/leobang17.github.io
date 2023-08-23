@@ -14,8 +14,11 @@ export function useDarkmode() {
     : undefined
 
   const [mode, setMode] = React.useState<PaletteMode>(
-    cachedTheme ?? systemTheme,
+    cachedTheme || systemTheme,
   )
+  console.log('캐시된 테마는?', cachedTheme)
+  console.log('시스템 테마는?', systemTheme)
+  console.log('결국 선택된 테마는?', mode)
 
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
     return {
