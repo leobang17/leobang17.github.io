@@ -26,6 +26,7 @@ const useStyles = makeStyles()(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: theme.palette.mode === 'dark' ? 'black' : 'white',
+    color: theme.palette.mode === 'dark' ? 'white' : 'black',
   },
   pageWrapper: {
     display: 'flex',
