@@ -19,7 +19,7 @@ type LayoutProps = {
   rightStack?: JSX.Element
 } & ChildrenProps
 
-const LayoutWrapper = styled.html`
+const LayoutWrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
   display: flex;
