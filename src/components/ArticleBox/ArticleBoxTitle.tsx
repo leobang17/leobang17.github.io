@@ -7,7 +7,6 @@ import { Link } from 'gatsby'
 
 import { PAGE_PREFIX } from 'constants/PageConsts'
 import { makeStyles } from 'tss-react/mui'
-import { themeMainContrast } from 'styles/theme/colorProcessor'
 
 export type ArticleBoxTitleProps = {
   slug: string

@@ -207,7 +207,10 @@ export const TD = (props: JSX.IntrinsicElements['td']) => {
         }`,
       }}
     >
-      <Typography variant="body1" color={themeMainContrast('plainText')}>
+      <Typography
+        variant="body1"
+        // color={themeMainContrast('plainText')}
+      >
         {props.children}
       </Typography>
     </Box>

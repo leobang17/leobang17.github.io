@@ -10,7 +10,7 @@ import CategoryStrings from 'datastructures/category/CategoryStrings'
 
 import { Box, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
-import { themeMainContrast, themeMainLight } from 'styles/theme/colorProcessor'
+import { themeMainLight } from 'styles/theme/colorProcessor'
 
 const useStyles = makeStyles()({
   root: {
