@@ -14,9 +14,13 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
 }) => {
   const { mode, switchMode } = useDarkmode()
 
+  console.log('theme context provider에서의 mode: ', mode)
+
   const theme = React.useMemo<Theme>(() => {
     return configureTheme(mode)
-  }, [mode])
+  }, [])
+
+  console.log('configure theme의 mode: ', theme)
 
   return (
     <ThemeContext.Provider
