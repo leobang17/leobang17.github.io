@@ -18,7 +18,7 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
 
   const theme = React.useMemo<Theme>(() => {
     return configureTheme(mode)
-  }, [])
+  }, [mode])
 
   console.log('configure theme의 mode: ', theme)
 
