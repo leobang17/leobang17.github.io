@@ -9,16 +9,19 @@ export function useDarkmode() {
     ? 'dark'
     : 'light'
 
-  const cachedTheme = isBrowser
-    ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
-    : undefined
+  // const cachedTheme = isBrowser
+  //   ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
+  //   : undefined
 
-  const [mode, setMode] = React.useState<PaletteMode>(
-    cachedTheme ?? systemTheme,
-  )
+  const [mode, setMode] = React.useState<PaletteMode>(systemTheme)
 
-  console.log('system theme: ', systemTheme)
-  console.log('cached theme: ', cachedTheme)
+  React.useEffect(() => {
+    const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
+    if (cachedTheme) {
+      setMode(cachedTheme)
+    }
+  }, [])
+
   console.log('current theme: ', mode)
 
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
