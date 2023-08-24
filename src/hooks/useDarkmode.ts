@@ -17,6 +17,10 @@ export function useDarkmode() {
     cachedTheme ?? systemTheme,
   )
 
+  console.log('system theme: ', systemTheme)
+  console.log('cached theme: ', cachedTheme)
+  console.log('current theme: ', mode)
+
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
     return {
       switchMode: () => {
