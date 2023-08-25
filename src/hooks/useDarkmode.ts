@@ -5,25 +5,25 @@ const THEME_TOKEN = 'gatsbt-theme-simplex-theme'
 const isBrowser = typeof window !== 'undefined'
 
 export function useDarkmode() {
-  // const systemTheme = useMediaQuery('(prefers-color-scheme: dark)')
-  //   ? 'dark'
-  //   : 'light'
+  const systemTheme = useMediaQuery('(prefers-color-scheme: dark)')
+    ? 'dark'
+    : 'light'
 
   // const cachedTheme = isBrowser
   //   ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
   //   : undefined
 
-  const [mode, setMode] = React.useState<PaletteMode>('light')
+  const [mode, setMode] = React.useState<PaletteMode>(systemTheme)
 
   React.useEffect(() => {
-    const systemTheme = useMediaQuery('(prefers-color-scheme: dark)')
-      ? 'dark'
-      : 'light'
     const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
-    setMode(cachedTheme ?? systemTheme)
+    if (cachedTheme) {
+      console.log('cachedTheme이 있다.', cachedTheme)
+      setMode(cachedTheme)
+    } else {
+      localStorage.setItem(THEME_TOKEN, mode)
+    }
   }, [])
-
-  console.log('current theme: ', mode)
 
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
     return {
@@ -41,6 +41,8 @@ export function useDarkmode() {
       },
     }
   }, [])
+
+  console.log('current theme: ', mode)
 
   return { mode, switchMode }
 }

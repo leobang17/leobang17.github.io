@@ -7,7 +7,7 @@ import Footer from 'components/Footer'
 import LeftStack from 'components/LeftStack'
 import RightStack from 'components/RightStack'
 import { ChildrenProps } from 'types/react-types'
-import { Box, Container, CssBaseline } from '@mui/material'
+import { Box, Container, CssBaseline, useTheme } from '@mui/material'
 import MUINav from 'components/Nav/MUINav'
 import { ThemeContext } from 'contexts/theme/ThemeContext'
 import { ModeSwitch } from 'components/Nav/cells/ModeSwitch'
@@ -84,7 +84,7 @@ const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
             },
           }}
           onChange={switchMode}
-          defaultChecked={mode === 'dark' ? true : false}
+          checked={mode === 'dark' ? true : false}
         />
       </Box>
     </React.Fragment>
