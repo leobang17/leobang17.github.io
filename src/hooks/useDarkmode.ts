@@ -9,21 +9,23 @@ export function useDarkmode() {
     ? 'dark'
     : 'light'
 
-  // const cachedTheme = isBrowser
-  //   ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
-  //   : undefined
+  const cachedTheme = isBrowser
+    ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
+    : undefined
 
-  const [mode, setMode] = React.useState<PaletteMode>(systemTheme)
+  const [mode, setMode] = React.useState<PaletteMode>(
+    cachedTheme ?? systemTheme,
+  )
 
-  React.useEffect(() => {
-    const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
-    if (cachedTheme) {
-      console.log('cachedTheme이 있다.', cachedTheme)
-      setMode(cachedTheme)
-    } else {
-      localStorage.setItem(THEME_TOKEN, mode)
-    }
-  }, [])
+  // React.useEffect(() => {
+  //   const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
+  //   if (cachedTheme) {
+  //     console.log('cachedTheme이 있다.', cachedTheme)
+  //     setMode(cachedTheme)
+  //   } else {
+  //     localStorage.setItem(THEME_TOKEN, mode)
+  //   }
+  // }, [])
 
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
     return {
