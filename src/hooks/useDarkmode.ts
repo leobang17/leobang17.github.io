@@ -1,7 +1,7 @@
 import React from 'react'
 import { PaletteMode, useMediaQuery } from '@mui/material'
 
-const THEME_TOKEN = 'gatsbt-theme-simplex-theme'
+const THEME_TOKEN = 'theme'
 const isBrowser = typeof window !== 'undefined'
 
 export function useDarkmode() {
@@ -14,7 +14,6 @@ export function useDarkmode() {
   React.useEffect(() => {
     const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
     if (cachedTheme) {
-      console.log('cachedTheme이 있다.', cachedTheme)
       setMode(cachedTheme)
     } else {
       localStorage.setItem(THEME_TOKEN, mode)
@@ -37,8 +36,6 @@ export function useDarkmode() {
       },
     }
   }, [])
-
-  console.log('current theme: ', mode)
 
   return { mode, switchMode }
 }

@@ -40,8 +40,8 @@ const TOCTitle: FC<TOCTitleProps> = ({ title, url, activated }) => {
       className={activated ? 'activated' : ''}
       sx={{
         position: 'relative',
+        transition: 'color 0.2s ease, left 0.2s ease, transform 0.2s ease',
         left: '0px',
-        transition: 'left 0.2s ease, color 0.2s ease, transform 0.2s ease;',
         marginBlock: '0.2em',
       }}
     >

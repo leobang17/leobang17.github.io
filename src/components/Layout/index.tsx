@@ -45,7 +45,6 @@ const useStyles = makeStyles()(theme => ({
 const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
   const { classes } = useStyles()
   const { mode, switchMode } = useContext(ThemeContext)
-  console.log('Layout에서의 theme: ', mode)
 
   return (
     <React.Fragment>

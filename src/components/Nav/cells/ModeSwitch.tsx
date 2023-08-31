@@ -1,13 +1,7 @@
 import { styled } from '@mui/material/styles'
 import Switch from '@mui/material/Switch'
 
-export const ModeSwitch = styled(Switch)(({ theme, defaultChecked }) => {
-  console.log(
-    'ModeSwitch에서: ',
-    theme.palette.mode,
-    '기본으로 check된 값은: ',
-    defaultChecked,
-  )
+export const ModeSwitch = styled(Switch)(({ theme }) => {
   return {
     width: 62,
     height: 34,
