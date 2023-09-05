@@ -1,0 +1,17 @@
+{
+  "Markdown Frontmatter Snippet": {
+    "prefix": ["appr"],
+    "body": [
+      "## Approach",
+      "",
+      "#### Complexity",
+      "- time complexity: ",
+      "- space complexity: ",
+      "",
+      "#### Code",
+      "``` python",
+      "```"
+    ],
+    "description": "Snippet for markdown file to automatically create frontmatter input form"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "Markdown Frontmatter Snippet": {
+    "prefix": ["algo"],
+    "body": [
+      "---",
+      "title: \"${1:Title of this article}\"",
+      "createdAt: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "---",
+      "",
+      "## 문제",
+      "",
+      "#### Constraints",
+      "",
+      "",
+      "## Approach",
+      "",
+      "#### Complexity",
+      "- time complexity: ",
+      "- space complexity: ",
+      "",
+      "#### Code",
+      "``` python",
+      "```"
+    ],
+    "description": "Snippet for markdown file to automatically create frontmatter input form"
+  }
+}
