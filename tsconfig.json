@@ -117,7 +117,8 @@
     "src/pages/about.js",
     "src/@types/graphql-types.d.ts",
     "src/styles/remark/index.ts",
-    "src/styles/remark/CodeBlock.js"
+    "src/styles/remark/CodeBlock.js",
+    "src/templates/ArticlePage.jsx"
   ],
   "exclude": ["node_modules", "dist/**/*"]
 }

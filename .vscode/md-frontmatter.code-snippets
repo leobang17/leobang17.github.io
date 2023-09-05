@@ -3,7 +3,7 @@
     "prefix": ["post"],
     "body": [
       "---",
-      "title: ${1:Title of this article}",
+      "title: \"${1:Title of this article}\"",
       "createdAt: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
       "---",
       "",
