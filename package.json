@@ -19,7 +19,7 @@
   },
   "scripts": {
     "deploy": "gatsby build && echo leobang.me > ./build/CNAME && gh-pages -d public -b main",
-    "deploy:ci": "gatsby build && echo leobang.me > ./build/CNAME && gh-pages -d public -b main -r https://$PAT@github.com/$REPO_NAME.git",
+    "deploy:ci": "gatsby build && gh-pages -d public -b main -r https://$PAT@github.com/$REPO_NAME.git",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
