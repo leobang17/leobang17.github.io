@@ -32,9 +32,6 @@ jobs:
           git config --global user.email "email@example.com"
           git config --global user.name "${{ github.actor }}"
 
-      - name: Set Canonical Name for Custom Domain
-        run: echo leobang.me > ./build/CNAME
-
       - name: Install Dependencies
         run: npm ci
 
