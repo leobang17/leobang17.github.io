@@ -44,13 +44,12 @@ https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Gu
 Hibernate는 JDBC 명세에서 권장하는 natural 매핑을 준수하는 몇가지 built-in basic type을 제공한다. 내부적으로 Hibernate는 특정 `org.hibernate.type.Type`을 resolve하기 위해 basic type의 registry를 이용한다.
 
 Hibernate에서 제공하는 BasicType중 PostgreSQL의 UUID 타입은 다음과 같다. 
-<figure class="md-table-fig" cid="n304" mdtype="table" style="font-size: 16px; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; box-sizing: border-box; margin: 1.2em 0px; overflow-x: auto; max-width: calc(100% + 16px); padding: 0px; cursor: default; caret-color: rgb(51, 51, 51); color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, &quot;Clear Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Segoe UI Emoji&quot;, sans-serif; background-color: rgb(255, 255, 255);">
 
-Hibernate Type  (org.hibernate.type package) | JDBC type | Java Type | BasicTypeRegistry Keys (s)
--- | -- | -- | --
+| Hibernate Type  (org.hibernate.type package) | JDBC type | Java Type | BasicTypeRegistry Keys (s)
+| -- | -- | -- | --
 PostgresUUIDType | PostgreSQL UUID -> PosgreSQL JDBC 드라이버 definition으로 컴파일됨 | java.util.UUID | pg-uuid
 
-</figure><p cid="n315" mdtype="paragraph" class="md-end-block md-p" style="font-size: 16px; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; box-sizing: border-box; line-height: inherit; orphans: 4; margin: 0.8em 0px; white-space: pre-wrap; position: relative; caret-color: rgb(51, 51, 51); color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, &quot;Clear Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Segoe UI Emoji&quot;, sans-serif; background-color: rgb(255, 255, 255);"><span md-inline="plain" class="md-plain" style="box-sizing: border-box;">그런데 type을 </span><span md-inline="code" spellcheck="false" class="md-pair-s" style="box-sizing: border-box;"><code style="box-sizing: border-box; font-family: var(--monospace); text-align: left; border: 1px solid rgb(231, 234, 237); background-color: rgb(243, 244, 244); border-radius: 3px; padding: 0px 2px; font-size: 0.9em;">PostgreSQLUUIDType</code></span><span md-inline="plain" class="md-plain" style="box-sizing: border-box;">으로 주면 datasource와 dialect가 PostgreSQL로 설정되어 있는 main 앱은 ddl이 잘 실행이 되지만, postgresql을 호환하는 h2로 되어 있는 test path에서는 dialect 때문에 에러가 생긴다. 해당 타입은 H2에서 지원을 안하는 듯 ...</span></p>
+그런데 type을 `PostgreSQLUUIDType`으로 주면 datasource와 dialect가 PostgreSQL로 설정되어 있는 main 앱은 ddl이 잘 실행이 되지만, postgresql을 호환하는 h2로 되어 있는 test path에서는 dialect 때문에 에러가 생긴다. 해당 타입은 H2에서 지원을 안하는 듯 ...</span></p>
 
 <br />
 
