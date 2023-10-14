@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-index-tsx-905162f40c2826806b0b.js","mappings":"gKAMA,UAJkB,KACTA,EAAAA,EAAAA,IAAAA,EAAAA,SAAAA,K","sources":["webpack://gatsby-theme-simplex/./src/pages/index.tsx"],"sourcesContent":["import React from 'react'\n\nconst IndexPage = () => {\n  return <></>\n}\n\nexport default IndexPage\n"],"names":["___EmotionJSX"],"sourceRoot":""}
