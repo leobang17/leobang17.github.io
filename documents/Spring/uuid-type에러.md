@@ -49,7 +49,7 @@ Hibernate에서 제공하는 BasicType중 PostgreSQL의 UUID 타입은 다음과
 | -- | -- | -- | --
 PostgresUUIDType | PostgreSQL UUID -> PosgreSQL JDBC 드라이버 definition으로 컴파일됨 | java.util.UUID | pg-uuid
 
-그런데 type을 `PostgreSQLUUIDType`으로 주면 datasource와 dialect가 PostgreSQL로 설정되어 있는 main 앱은 ddl이 잘 실행이 되지만, postgresql을 호환하는 h2로 되어 있는 test path에서는 dialect 때문에 에러가 생긴다. 해당 타입은 H2에서 지원을 안하는 듯 ...</span></p>
+그런데 type을 `PostgreSQLUUIDType`으로 주면 datasource와 dialect가 PostgreSQL로 설정되어 있는 main 앱은 ddl이 잘 실행이 되지만, postgresql을 호환하는 h2로 되어 있는 test path에서는 dialect 때문에 에러가 생긴다. 해당 타입은 H2에서 지원을 안하는 듯 ...
 
 <br />
 
@@ -165,8 +165,6 @@ Test 만을 위한 코드가 prod에 반영되는 격이라 굉장히 찜찜하�
 
 ## Reference 
 
-https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#_uuid_as_binary
-
-https://www.postgresql.org/docs/current/datatype-uuid.html
-
-https://helloworld.kurly.com/blog/jpa-uuid-sapjil/#문제를-일단-해결한-방법-binary16
+- https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#_uuid_as_binary
+- https://www.postgresql.org/docs/current/datatype-uuid.html
+- https://helloworld.kurly.com/blog/jpa-uuid-sapjil/#문제를-일단-해결한-방법-binary16
