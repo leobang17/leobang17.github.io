@@ -22,8 +22,8 @@ export const createArticlePages = async (args: CreatePagesArgs) => {
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         id: node.id,
-        prevId: results[index + 1]?.id,
-        nextId: nextNode?.id,
+        prevId: results[index + 1]?.id ?? 'none',
+        nextId: nextNode?.id ?? 'none',
       },
     })
     nextNode = node

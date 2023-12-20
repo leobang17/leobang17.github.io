@@ -1,6 +1,7 @@
 export function slugify(value: string) {
   let slug = trimSpaces(value)
   slug = convertConnectiveCharToHyphen(slug)
+  slug = convertSlashToHyphen(slug)
   slug = camelToHyphenedSnake(slug)
   slug = removeUrlUnsafeChars(slug)
   slug = condensConsecutiveHyphens(slug)
@@ -13,6 +14,10 @@ function trimSpaces(slug: string) {
 
 function convertConnectiveCharToHyphen(slug: string) {
   return slug.replace(/[\s_:;]+/g, '-')
+}
+
+function convertSlashToHyphen(slug: string) {
+  return slug.replace(/\//g, '-')
 }
 
 function camelToHyphenedSnake(slug: string) {
