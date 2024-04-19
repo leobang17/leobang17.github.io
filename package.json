@@ -18,7 +18,7 @@
     "url": "https://github.com/leobang17/gatsby-theme-simplex/issues"
   },
   "scripts": {
-    "deploy": "gatsby build && echo leobang.me > ./build/CNAME && gh-pages -d public -b main",
+    "deploy": "gatsby build && echo leobang.me > ./public/CNAME && gh-pages -d public -b main",
     "deploy:ci": "gatsby build && echo leobang.me > ./public/CNAME && gh-pages -d public -b main -r https://$PAT@github.com/$REPO_NAME.git",
     "build": "gatsby build",
     "dev": "gatsby develop",
