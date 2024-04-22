@@ -113,8 +113,53 @@ s2 = append(s2, 5)			 // 새로운 공간을 동적으로 확장할 시점.
 
 ##### full slice expression으로 slicing의 capacity 제한하기
 
+slice expression의 완전한 표현은 `[low:high:max]`이다. 
+
+- low ~ high - 1는 slicing된 slice의 length를 표현하고
+- low ~ max -1은 slicing된 slice의 capacity를 표현한다.
+
+`[low:high:max]`는 `[low:high]`와 표현 결과는 동일하지만, length와 capacity를 동일하게 조정함으로서 적절하게 사용한다면 *불필요한 메모리 누수를 방지*할 수 있다. 
+
+또한 length와 capacity가 동일한 slice가 생성되므로 다음 `append`시 내부 배열을 동적으로 확장하며 기존 slice와의 참조를 끊어낼 수 있다.
 
 
+
+#### Slice 복사하기
+
+내장 함수인 `copy`를 이용하면 원본 slice의 원소를 대상 slice에게 복제할 수 있다. `copy`함수의 동작 방식에는 타 언어의 array 복제와 비교해서 약~간 주의할 점이 있다.
+
+`copy(dest, src)`
+
+- `dest`: 대상 slice
+- `src`: 원본 slice
+
+`dest` slice로 복제되는 원소의 개수는 *원본 slice의 길이와 대상 slice의 길이의 최솟값*으로 맞춰진다. 
+
+> Copy returns the number of elements copied, which will be the minimum of len(src) and len(dst).
+>
+> - [Go - builtin.go](https://github.com/golang/go/blob/master/src/builtin/builtin.go)
+
+이렇게 말하니까 조금 복잡한데 쉽게 말하면 <u>`dest` slice가 표현하고 있는 length만큼만 원소가 복제</u>된다고 생각하면 된다. 만약 `dest`의 length가 더 길 경우, `src`의 모든 원소가 index 0부터 `src`의 길이만큼만 복제된다. 
+
+code의 예시를 통해 확인하자.
+
+```go
+src := []int { 1, 2, 3 }
+var dest []int // empty이자 nil slice
+copy(dest, src)	// nil slice에도 copy를 사용할 수 있다. (empty와 동일하게 동작)
+fmt.Println(dest) // []
+```
+
+- `dest`의 length가 0이기 때문에 어떠한 원소도 복사되지 않는다. 
+
+``` go 
+src := []int { 1, 2, 3 }
+var dest := []int{ 5, 5, 5, 5, 5 }
+copy(dest, src)	
+fmt.Println(dest) // [1, 2, 3, 5, 5]
+```
+
+- `src`의 length까지 복사된다. `dest`의 length는 조작되지 않기에 기존의 element 역시 그대로 표현된다.
 
 
 ## Slice의 초기화 방식
